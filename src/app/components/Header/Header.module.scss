@@ -1,0 +1,19 @@
+@import "styles/text.module.scss";
+@import "styles/color.module.scss";
+
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 24px 32px;
+    align-items: center;
+    color: $text-color;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.152);
+}
+
+.nav{
+    display: flex;
+    gap: 24px;
+
+}
+
