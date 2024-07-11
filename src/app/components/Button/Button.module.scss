@@ -1,0 +1,78 @@
+@import "styles/text.module.scss";
+@import "styles/color.module.scss";
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    max-height: 40px;
+    color: white;
+    font: $button-text;
+    border: 1px solid $secondary-color;
+
+    &.sm{
+        padding: 0;
+        min-width: 20px;
+
+    }
+    &.md{
+        padding: 12px;
+
+    }
+    &.lg{
+        padding: 12px;
+        min-width: 175px;
+    }
+    &.xl{
+        padding: 12px;
+        min-width: 175px;
+        width: 100%;
+    }
+    &.primary{
+        background-color: $primary-color;
+        border: none ;
+        &:hover{
+            background-color: transparent;
+            border: $secondary-color 1.5px solid;
+        }
+    }
+    &.secondary{
+        background-color: $secondary-color;
+        &:hover{
+            background-color: transparent;
+            border: 1.5px solid $secondary-color;
+            color: white;
+            
+        }
+        color: black;
+    }
+    &.transparent{
+        background-color: transparent;
+        color: $secondary-color;
+        &:hover{
+            background-color: $secondary-color;
+            color: $primary-color;
+        }
+    }
+    &.disabled{
+        pointer-events: none;
+    }
+    &.rounded{
+        border-radius: 100px;
+    }
+
+
+}
+
+.container:disabled{
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
