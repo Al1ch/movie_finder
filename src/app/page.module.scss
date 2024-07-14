@@ -1,0 +1,48 @@
+@import "styles/text.module.scss";
+@import "styles/color.module.scss";
+
+.container {
+  color: $text-color;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroImage {
+  width: 100%;
+  
+}
+.wallpaper{
+  width: 100%;
+  max-height: 500px;
+  object-fit:cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroInfo{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  top: 25%;
+  left: 20%;
+}
+
+.info{
+  font: $info-text;
+  color: red;
+
+}
+.heroTitle{
+  font: $hero-title;
+}
+
+.movieList{
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 64px;
+  justify-content: center;
+}
