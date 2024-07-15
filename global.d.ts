@@ -5,5 +5,12 @@ export type Movie = {
     vote_average: number;
     id: number;
     overview: string;
+    vote_count: number;
+    genre_ids: number[];
 };
 
+
+export type MovieDetails = {
+    genres: { id: number; name: string }[];
+    runtime: number;
+}
