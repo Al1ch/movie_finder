@@ -4,5 +4,6 @@ export type Movie = {
     release_date: string;
     vote_average: number;
     id: number;
+    overview: string;
 };
 
