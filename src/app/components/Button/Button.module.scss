@@ -12,7 +12,7 @@
     border: 1px solid $secondary-color;
 
     &.sm{
-        padding: 0;
+        padding: 8px;
         min-width: 20px;
 
     }
@@ -50,11 +50,9 @@
     }
     &.transparent{
         background-color: transparent;
-        color: $secondary-color;
-        &:hover{
-            background-color: $secondary-color;
-            color: $primary-color;
-        }
+        color: $primary-color;
+     
+        
     }
     &.disabled{
         pointer-events: none;
