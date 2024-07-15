@@ -9,6 +9,8 @@ import Button from "@/app/components/Button/Button";
 import PlaySvg from "@/app/assets/vectors/play.svg";
 import useMovieDetails from "@/app/hooks/useMovieDetails";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import useMovies from "@/app/hooks/useMovies";
 
 export default function MoviePage({
   params,
@@ -21,6 +23,7 @@ export default function MoviePage({
   };
 }) {
   const { movie, isLoading, error } = useMovie(params.title as string);
+  const { movies, isLoading: isMoviesLoading } = useMovies();
   const searchParams = useSearchParams();
   const movieId = searchParams.get("id");
 
@@ -30,15 +33,30 @@ export default function MoviePage({
     <main className={styles.container}>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error loading data.</p>}
-      {movie && (
+      {movie && movieDetails && (
         <div className={styles.movieContainer}>
           <MovieCard image={movie.backdrop_path} id={movie.id} />
           <div className={styles.movieInfoContainer}>
-            <div className={styles.movieHeader}>
-              <h1 className={styles.title}>{movie.title}</h1>
-              <div className={styles.rating}>
-                <StarSvg />
-                <span>{Math.round(movie.vote_average * 10) / 10}</span>
+            <div className={styles.movieHeaderContainer}>
+              <div className={styles.movieHeader}>
+                <h1 className={styles.title}>{movie.title}</h1>
+                <div className={styles.rating}>
+                  <StarSvg />
+                  <span>{Math.round(movie.vote_average * 10) / 10}</span>
+                  <span className={styles.movieVote}>| {movie.vote_count}</span>
+                </div>
+              </div>
+              <div className={styles.categoryList}>
+                {movieDetails.genres.map((genre) => (
+                  <Button
+                    key={genre.id}
+                    size="sm"
+                    backgroundColor="transparent"
+                    radius="normal"
+                  >
+                    {genre.name}
+                  </Button>
+                ))}
               </div>
             </div>
             <p className={styles.overview}>{movie.overview}</p>
@@ -52,38 +70,62 @@ export default function MoviePage({
                   .join("/")}
               </span>
             </div>
-            <Button size="md" backgroundColor="primary" radius="normal">
-              <div className={styles.buttonContent}>
-                <PlaySvg />
-                <span className={styles.buttonTitle}>Watch Trailer</span>
-              </div>
-            </Button>
-          </div>
-          {/* <div className={styles.wallpaper}>
-            <div className={styles.heroInfo}>
-              <span className={styles.info}>{movie.title}</span>
-              <h1 className={styles.heroTitle}>Movie Finder</h1>
+            <div className={styles.infoContainer}>
+              <span className={styles.titleInfo}>Duration</span>
+              <span className={styles.infoText}>
+                {movieDetails.runtime} minutes
+              </span>
             </div>
-            <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-              alt="Wallpaper"
-              className={styles.heroImage}
-              width={500}
-              height={281} // Vous pouvez ajuster la taille selon vos besoins
-            />
+            <Link
+              href={`https://www.youtube.com/results?search_query=${movie.title}+trailer`}
+            >
+              <Button size="md" backgroundColor="primary" radius="normal">
+                <div className={styles.buttonContent}>
+                  <PlaySvg />
+                  <span className={styles.buttonTitle}>Watch Trailer</span>
+                </div>
+              </Button>
+            </Link>
           </div>
-          <div className={styles.movieList}>
-            {movie.results.map((movie: Movie) => (
+        </div>
+      )}
+      <div className={styles.similarMoviesContainer}>
+        <h2 className={styles.similarMoviesTitle}>Similar Movies</h2>
+
+        <div className={styles.movieList}>
+          {movies
+            ?.filter(
+              (movieSuggestion) =>
+                movieSuggestion.genre_ids.some((genreId) =>
+                  movie?.genre_ids.includes(genreId)
+                ) && movieSuggestion.id !== movie.id
+            )
+            ?.map((movie: Movie) => (
               <MovieCard
+                id={movie.id}
                 key={movie.id}
                 image={movie.backdrop_path}
                 title={movie.title}
                 releaseDate={movie.release_date}
               />
             ))}
-          </div> */}
         </div>
-      )}
+      </div>
+
+      <div className={styles.allMoviesList}>
+        <h2 className={styles.similarMoviesTitle}>All Movies</h2>
+        <div className={styles.allMoviesContainer}>
+          {movies?.map((movie: Movie) => (
+            <MovieCard
+              id={movie.id}
+              key={movie.id}
+              image={movie.backdrop_path}
+              title={movie.title}
+              releaseDate={movie.release_date}
+            />
+          ))}
+        </div>
+      </div>
     </main>
   );
 }
