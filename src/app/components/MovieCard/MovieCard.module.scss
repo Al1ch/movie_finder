@@ -7,6 +7,11 @@
     gap: 8px;
     align-items: flex-start;
     position: relative;
+    min-width: 300px;
+    background-color: transparent;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
 }
 
 .image{
@@ -16,7 +21,7 @@
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 .infoContainer{
@@ -29,8 +34,14 @@
     font: $movie-title;
 }
 
+
+
 .infoText{
     font: $info-text;
     color: $gray;
 }
+
+
+
+
 
