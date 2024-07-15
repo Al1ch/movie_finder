@@ -2,6 +2,7 @@
 import React from "react";
 import useSWR from "swr";
 import { fetcher } from "../../../lib/fetcher";
+import { Movie } from "../../../global";
 
 const useMovies = () => {
   const { data, error, isLoading } = useSWR(
@@ -11,8 +12,10 @@ const useMovies = () => {
     fetcher
   );
 
+  const movies: Movie[] = data?.results;
+
   return {
-    movie: data,
+    movies: movies,
     isLoading,
     error,
   };
