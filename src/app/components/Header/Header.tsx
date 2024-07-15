@@ -10,9 +10,6 @@ const Header = () => {
         <a href="/" className={styles.link}>
           Home
         </a>
-        <a href="/about" className={styles.link}>
-          Tv shows
-        </a>
       </div>
       <SearchBar />
     </div>
