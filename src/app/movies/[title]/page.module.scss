@@ -1,0 +1,77 @@
+@import "styles/text.module.scss";
+@import "styles/color.module.scss";
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 64px;
+}
+
+.movieContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+}
+
+
+.wallpaper{
+    width: 100%;
+}
+
+.movieInfoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 800px;
+}
+
+.title{
+    font: $movie-title-h1;
+}
+
+.overview{
+    font: $info-text;
+    color: $gray;
+    line-height: 1.75;
+}
+
+.titleInfo{
+    font: $movie-title;
+
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.movieHeader{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buttonTitle{
+    font: $button-text;
+    color: $text-color;
+}
+
+
+.buttonContent{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
