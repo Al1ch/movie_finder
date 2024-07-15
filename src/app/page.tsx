@@ -7,8 +7,8 @@ import MovieCard from "./components/MovieCard/MovieCard";
 import { Movie } from "../../global";
 
 export default function Home() {
-  const { movie, isLoading, error } = useMovies();
-  isLoading == false && console.log("movie", movie.results);
+  const { movies, isLoading, error } = useMovies();
+  isLoading == false && console.log("movie", movies);
   return (
     <main className={styles.container}>
       <div className={styles.wallpaper}>
@@ -22,8 +22,8 @@ export default function Home() {
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
 
-        {movie &&
-          movie.results.map((movie: Movie) => (
+        {movies &&
+          movies.map((movie: Movie) => (
             <MovieCard
               key={movie.id}
               image={movie.backdrop_path}
