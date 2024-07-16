@@ -41,7 +41,7 @@ const SearchBar = () => {
           type="text"
           className={styles.input}
           onChange={handleChange}
-          placeholder="Rechercher un fichier "
+          placeholder="Search for a movie"
           value={searchValue}
         />
       </form>

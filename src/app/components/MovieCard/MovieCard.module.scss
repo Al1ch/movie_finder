@@ -12,6 +12,7 @@
     border: none;
     color: $text-color;
     cursor: pointer;
+    margin-bottom: 16px;
 }
 
 .image{
@@ -21,7 +22,7 @@
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    border-radius: 16px;
+    border-radius: 8px;
 }
 
 .infoContainer{
