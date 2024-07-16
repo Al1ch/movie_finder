@@ -6,9 +6,14 @@ import popCornBg from "@/app/assets/image/popcorn.jpg";
 import MovieCard from "./components/MovieCard/MovieCard";
 import { Movie } from "../../global";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  console.log("searchbar ", searchParams);
   const { movies, isLoading, error } = useMovies();
-  isLoading == false && console.log("movie", movies);
+
   return (
     <main className={styles.container}>
       <div className={styles.wallpaper}>
@@ -23,15 +28,21 @@ export default function Home() {
         {error && <p>{error}</p>}
 
         {movies &&
-          movies.map((movie: Movie) => (
-            <MovieCard
-              key={movie.id}
-              image={movie.backdrop_path}
-              title={movie.title}
-              releaseDate={movie.release_date}
-              id={movie.id}
-            />
-          ))}
+          movies
+            ?.filter((movie: Movie) =>
+              movie.title
+                .toLowerCase()
+                .includes((searchParams.search as string) ?? "")
+            )
+            .map((movie: Movie) => (
+              <MovieCard
+                key={movie.id}
+                image={movie.backdrop_path}
+                title={movie.title}
+                releaseDate={movie.release_date}
+                id={movie.id}
+              />
+            ))}
       </div>
     </main>
   );
