@@ -6,7 +6,7 @@
     flex-direction: column;
     width: 100%;
     padding: 64px;
-    gap: 32px;
+    gap: 64px;
 }
 
 .movieContainer{
@@ -17,6 +17,9 @@
     justify-content: center;
 }
 
+.titleSection{
+    font: $title-section;
+}
 
 .wallpaper{
     width: 100%;
@@ -130,3 +133,23 @@
     justify-content: flex-start;
     width: 100%;
 }
+
+.movieImageContainer{
+    min-width: 500px;
+    max-height: 400px;
+
+}
+
+.movieImage{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.bottomInfoContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    width: 100%;
+}
+

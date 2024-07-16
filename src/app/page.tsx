@@ -11,6 +11,7 @@ export default function Home({
 }: {
   readonly searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  console.log("searchbar ", searchParams);
   const { movies, isLoading, error } = useMovies();
 
   return (
