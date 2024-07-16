@@ -9,8 +9,7 @@
     cursor: pointer;
     max-height: 40px;
     color: white;
-    border: 1px solid $secondary-color;
-
+    border: 1.5px solid transparent;
     &.sm{
         padding: 8px;
         min-width: 20px;
@@ -32,10 +31,11 @@
     }
     &.primary{
         background-color: $primary-color;
-        border: none ;
+        border: 1.5px solid transparent;
+
         &:hover{
             background-color: transparent;
-            border: $secondary-color 1.5px solid;
+            border: $secondary-color 1.5px solid ;
         }
     }
     &.secondary{
