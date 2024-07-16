@@ -1,0 +1,135 @@
+@import "styles/text.module.scss";
+@import "styles/color.module.scss";
+@import 'styles/_breakpoints.scss';
+
+.movieContainer{
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    @include tablet{
+        flex-direction: row;
+
+    }
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+
+.movieImageContainer{
+    min-width: 250px;
+    max-height: 350px;
+    @include tablet{
+        min-width: 500px;
+        max-height: 400px;
+    }
+}
+
+
+.movieHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: flex-start;
+
+    @include tablet{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.movieInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 800px;
+}
+
+
+.title{
+    font: $movie-title-h1;
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.movieImage{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.bottomInfoContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+.overview{
+    font: $info-text;
+    color: $gray;
+    line-height: 1.75;
+}
+
+.titleInfo{
+    font: $movie-title;
+
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    white-space: nowrap;
+}
+
+
+
+.buttonTitle{
+    font: $button-text;
+    color: $text-color;
+}
+
+
+.buttonContent{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieVote{
+    color: $gray;
+    font: $details;
+}
+
+.movieHeaderContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+}
+
+.categoryList{
+    width: 100%;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
