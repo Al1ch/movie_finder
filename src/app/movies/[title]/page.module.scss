@@ -11,115 +11,14 @@
     gap: 64px;
 }
 
-.movieContainer{
-    display: flex;
-    flex-direction: column;
-    
-    width: 100%;
-    @include tablet{
-        flex-direction: row;
 
-    }
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-}
 
 .titleSection{
     font: $title-section;
 }
 
-.wallpaper{
-    width: 100%;
-}
-
-.movieInfoContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    max-width: 800px;
-}
-
-.title{
-    font: $movie-title-h1;
-}
-
-.overview{
-    font: $info-text;
-    color: $gray;
-    line-height: 1.75;
-}
-
-.titleInfo{
-    font: $movie-title;
-
-}
-
-.infoContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    white-space: nowrap;
-}
-.movieHeader{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    align-items: flex-start;
-
-    @include tablet{
-        flex-direction: row;
-        align-items: center;
-
-        justify-content: space-between;
 
 
-    }
-  
-}
-.rating{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.buttonTitle{
-    font: $button-text;
-    color: $text-color;
-}
-
-
-.buttonContent{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-}
-
-.movieVote{
-    color: $gray;
-    font: $details;
-}
-
-.movieHeaderContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-    width: 100%;
-}
-
-.categoryList{
-    width: 100%;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-}
 
 .similarMoviesContainer{
     display: flex;
@@ -128,14 +27,7 @@
     width: 100%;
 }
 
-.movieList{
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 16px;
-    justify-content: flex-start;
-    width: 100%;
-}
+
 
 
 .allMoviesList{
@@ -154,29 +46,5 @@
     width: 100%;
 }
 
-.movieImageContainer{
-    min-width: 250px;
-    max-height: 350px;
-    @include tablet{
-        min-width: 500px;
-        max-height: 400px;
-    }
-  
 
-}
-
-.movieImage{
-    object-fit: cover;
-    height: 100%;
-    border-radius: 8px;
-}
-
-.bottomInfoContainer{
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
-    width: 100%;
-    align-items: center;
-    flex-wrap: wrap;
-}
 
