@@ -18,9 +18,7 @@ export default function MoviePage({
   readonly params: {
     readonly title: string | string | string[] | undefined;
   };
-  searchParams: {
-    [key: string]: string | string[] | undefined;
-  };
+  readonly searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const { movie, isLoading, error } = useMovie(params.title as string);
   const { movies, isLoading: isMoviesLoading } = useMovies();
@@ -115,15 +113,21 @@ export default function MoviePage({
       <div className={styles.allMoviesList}>
         <h2 className={styles.similarMoviesTitle}>All Movies</h2>
         <div className={styles.allMoviesContainer}>
-          {movies?.map((movie: Movie) => (
-            <MovieCard
-              id={movie.id}
-              key={movie.id}
-              image={movie.backdrop_path}
-              title={movie.title}
-              releaseDate={movie.release_date}
-            />
-          ))}
+          {movies
+            ?.filter((movie: Movie) =>
+              movie.title
+                .toLowerCase()
+                .includes((searchParams.get("search") as string) ?? "")
+            )
+            ?.map((movie: Movie) => (
+              <MovieCard
+                key={movie.id}
+                image={movie.backdrop_path}
+                title={movie.title}
+                releaseDate={movie.release_date}
+                id={movie.id}
+              />
+            ))}
         </div>
       </div>
     </main>

@@ -9,9 +9,8 @@ import { Movie } from "../../global";
 export default function Home({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  readonly searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  console.log("searchbar ", searchParams);
   const { movies, isLoading, error } = useMovies();
 
   return (
@@ -27,22 +26,21 @@ export default function Home({
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
 
-        {movies &&
-          movies
-            ?.filter((movie: Movie) =>
-              movie.title
-                .toLowerCase()
-                .includes((searchParams.search as string) ?? "")
-            )
-            .map((movie: Movie) => (
-              <MovieCard
-                key={movie.id}
-                image={movie.backdrop_path}
-                title={movie.title}
-                releaseDate={movie.release_date}
-                id={movie.id}
-              />
-            ))}
+        {movies
+          ?.filter((movie: Movie) =>
+            movie.title
+              .toLowerCase()
+              .includes((searchParams.search as string) ?? "")
+          )
+          ?.map((movie: Movie) => (
+            <MovieCard
+              key={movie.id}
+              image={movie.backdrop_path}
+              title={movie.title}
+              releaseDate={movie.release_date}
+              id={movie.id}
+            />
+          ))}
       </div>
     </main>
   );
