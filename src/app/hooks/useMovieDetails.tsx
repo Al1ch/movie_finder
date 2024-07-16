@@ -11,7 +11,6 @@ const useMovieDetails = (movieId: string) => {
   );
 
   const movieDetails: MovieDetails = data;
-  console.log("data detail ", data);
   return {
     movieDetails: movieDetails,
     detailIsLoading: isLoading,

@@ -11,12 +11,22 @@ import {
 } from "@/components/ui/carousel";
 
 type Props = {
-  genres: number[];
-  movieId: number;
+  movieId: string;
 };
 
-const MovieCarousel = ({ genres, movieId }: Props) => {
-  const { movies, isLoading: isMoviesLoading } = useMovies();
+const MovieCarousel = ({ movieId }: Props) => {
+  const { movies, isLoading: isMoviesLoading, error } = useMovies();
+
+  if (isMoviesLoading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error loading data.</p>;
+  }
+
+  const currentMovieGenre = movies?.find(
+    (el) => el.id.toString() === movieId
+  )?.genre_ids;
 
   return (
     <Carousel className="flex w-full ">
@@ -25,8 +35,8 @@ const MovieCarousel = ({ genres, movieId }: Props) => {
           ?.filter(
             (movieSuggestion) =>
               movieSuggestion.genre_ids.some((genreId) =>
-                genres.includes(genreId)
-              ) && movieSuggestion.id !== movieId
+                currentMovieGenre?.includes(genreId)
+              ) && movieSuggestion.id.toString() !== movieId
           )
           .map((movie, index) => (
             <CarouselItem
