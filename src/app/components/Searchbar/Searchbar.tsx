@@ -32,7 +32,7 @@ const SearchBar = () => {
     return () => {
       document.removeEventListener("keydown", handleSubmit);
     };
-  }, [router, searchValue]);
+  }, [router, searchValue, searchParams]);
 
   return (
     <div className={styles.container}>

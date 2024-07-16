@@ -107,7 +107,7 @@ export default function MoviePage({
       )}
       <div className={styles.similarMoviesContainer}>
         <h2 className={styles.titleSection}>Similar Movies</h2>
-        <Carousel className=" flex w-full">
+        <Carousel className="flex w-full ">
           <CarouselContent className="flex -ml-1 ">
             {movies
               ?.filter(
@@ -119,7 +119,7 @@ export default function MoviePage({
               .map((movie, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-1 md:basis-1/3 lg:basis-1/4"
+                  className="basis-11/12  sm:basis-1/2 md:basis-1/2  lg:basis-1/4 "
                 >
                   <MovieCard
                     id={movie.id}
