@@ -5,14 +5,30 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 24px 32px;
+    padding: 24px 64px;
     align-items: center;
     color: $text-color;
     border-bottom: 2px solid rgba(128, 128, 128, 0.152);
 }
 
+.title{
+    font: $title-h1;
+}
+
+
 .nav{
     display: flex;
     gap: 24px;
+}
+
+.link{
+    text-decoration: none;
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s;
+    &:hover{
+        color: $primary-color;
+    }
 }
 
