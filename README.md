@@ -1,7 +1,8 @@
 # README
 
 ## Description
-Ce projet est une application Next.js. Ce fichier README vous guidera à travers les étapes nécessaires pour cloner le projet, installer les dépendances, configurer les variables d'environnement et lancer l'application en local.
+Ce projet est une application Next.js. Movie_finder est une app qui requete des films provenants de l'API TMDB et qui recense les films en salle actuellemt.
+Ce fichier README vous guidera à travers les étapes nécessaires pour cloner le projet, installer les dépendances, configurer les variables d'environnement et lancer l'application en local.
 
 ## Prérequis
 Avant de commencer, assurez-vous d'avoir les logiciels suivants installés sur votre machine :
