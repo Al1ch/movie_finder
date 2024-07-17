@@ -15,8 +15,11 @@ export default function Home({
     <main className={styles.container}>
       <div className={styles.wallpaper}>
         <div className={styles.heroInfo}>
-          <span className={styles.info}>NOW PLAYING </span>
-          <h1 className={styles.heroTitle}>Movie Finder </h1>
+          <h1 className={styles.heroTitle}>Unlimited Movies</h1>
+          <span className={styles.heroSubtitle}>
+            Find the latest and greatest movies on the big screen <br />
+            all registered in our database.
+          </span>
         </div>
         <Image src={popCornBg} alt="Wallpaper" className={styles.heroImage} />
       </div>
