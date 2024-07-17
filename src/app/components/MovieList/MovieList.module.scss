@@ -3,10 +3,11 @@
     gap: 24px;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: flex-start;
-    
-    &.center{
-      justify-content: center;
+    margin-left: 0;
+    justify-content: center;
+
+    &.start{
+      justify-content: flex-start;
     }
     
-  }
+}

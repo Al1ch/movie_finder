@@ -6,8 +6,7 @@ import { Movie } from "../../../global";
 
 const useMovies = () => {
   const { data, error, isLoading } = useSWR(
-    // `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.MOVIE_API_KEY}`,
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=2a0cb5fbcd150f8df32fb34362da0fd4`,
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`,
 
     fetcher
   );

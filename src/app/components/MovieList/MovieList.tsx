@@ -22,7 +22,7 @@ const MovieList = ({ searchValue }: Props) => {
   return (
     <div
       className={cn(styles.movieList, {
-        [styles.center]: movieListFiltered.length > maxMovieInaRow,
+        [styles.start]: movieListFiltered.length < maxMovieInaRow,
       })}
     >
       {movieListFiltered?.map((movie: Movie) => (
